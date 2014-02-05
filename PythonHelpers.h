@@ -54,7 +54,7 @@ PyObject* attrChain(PyObject* base, const char* name) {
 	Py_INCREF(base);
 	
 	while(true) {
-		char* dot = strchr(name, '.');
+		char* dot = (char*)strchr(name, '.');
 		if(!dot) break;
 		
 		PyObject* attrName = PyString_FromStringAndSize(name, dot - name);
